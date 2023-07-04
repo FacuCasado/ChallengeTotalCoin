@@ -14,8 +14,8 @@ function Button({id, name, counter, flag}){
         setDisabled(true)
         axios.patch(`/buttons/${id}`)
         .then(()=>dispatch(getButtons()))
-        .then(()=>setDisabled(false))
         .then(()=>flag())
+        .then(()=>setDisabled(false))
     }
 
     return (
