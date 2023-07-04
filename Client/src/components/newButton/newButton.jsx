@@ -12,7 +12,7 @@ function NewButton({first}){
     const handleSubmit=async(event)=>{
         event.preventDefault()
         try {
-            await axios.post('/buttons',body)
+            await axios.post('/',body)
             dispatch(getButtons())
             setBody({})
         } catch (error) {

@@ -6,7 +6,7 @@ import Button from './components/button/button';
 import NewButton from './components/newButton/newButton';
 import axios from 'axios';
 
-axios.defaults.baseURL='http://localhost:3001/api/v1'
+axios.defaults.baseURL='http://localhost:3001/api/v1/buttons'
 
 function App() {
     const dispatch=useDispatch();
@@ -21,6 +21,7 @@ function App() {
 
   return (
     <div className={styles.appContainer}>
+        <h1 className={styles.h1}>Contador de clicks</h1>
         <NewButton first={buttons.length}/>
         <div className={styles.buttonContainer}>
             {buttons.length?(buttons.map(button=>{

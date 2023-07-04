@@ -4,7 +4,7 @@ export const GET_BUTTONS='GET_BUTTONS'
 export function getButtons(){
     return async function(dispatch){
         try {
-            let buttons=await axios.get('/buttons')
+            let buttons=await axios.get('/')
             return dispatch({
                 type:GET_BUTTONS,
                 payload:buttons.data

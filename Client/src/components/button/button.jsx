@@ -11,20 +11,19 @@ function Button({id, name, counter}){
     const handleClick=async()=>{
         if(disabled) return;
         setDisabled(true)
-        await axios.patch(`/buttons/${id}`)
-        //await axios.get('/buttons')
+        await axios.patch(`/${id}`)
         dispatch(getButtons())
         setDisabled(false)
     }
 
     const handleDelete=async()=>{
-        await axios.delete(`/buttons/${id}`)
+        await axios.delete(`/${id}`)
         dispatch(getButtons())
     }
 
     return (
         <div className={styles.buttonContainer}>
-            <button onClick={handleDelete}>x</button>
+            <button onClick={handleDelete} className={styles.closeButton}>x</button>
             <button
                 className={`${styles.button} ${disabled ? styles.disabled : ""}`}
                 onClick={handleClick}

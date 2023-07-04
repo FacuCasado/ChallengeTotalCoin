@@ -7,13 +7,33 @@
   
   .button {
     margin-bottom: 10px;
+    border-radius: 12px;
+  }
+  .button:hover{
+    background-color: black;
+  }
+
+  .disabled:hover{
+    background-color: rgb(163, 61, 61);
+    color: white;
+  }
+  .closeButton{
+    display: flex;
+    border-radius: 50%;
+    height: .2em;
+    width: .1em;
+    justify-content: center;
+    align-items: center;
+    font-size: smaller;
+    margin-bottom: .2em;
+    padding-top: 5px;
+  }
+  .closeButton:hover{
+    background-color: rgb(189, 2, 2);
+    border-color: black;
   }
   
   .counter {
     margin-top: 10px;
   }
   
-  .disabled {
-    background-color: red;
-    color: white;
-  }
