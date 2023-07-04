@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 import { getButtons } from "../../Redux/actions";
+import styles from "./button.module.css";
 
 function Button({id, name, counter, flag}){
     const dispatch=useDispatch();
@@ -17,12 +18,18 @@ function Button({id, name, counter, flag}){
         .then(()=>flag())
     }
 
-    return(
-        <div>
-            <button onClick={handleClick} disabled={disabled}>{disabled?'AAA':name}</button>
-            <>{counter}</>
+    return (
+        <div className={styles.buttonContainer}>
+          <button
+            className={`${styles.button} ${disabled ? styles.disabled : ""}`}
+            onClick={handleClick}
+            disabled={disabled}
+          >
+            {disabled?'X':name}
+          </button>
+          <div className={styles.counter}>Counter: {counter}</div>
         </div>
-    )
+      );
 
 }
 

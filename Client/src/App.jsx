@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+import styles from "./App.module.css";
 import{useDispatch, useSelector}from'react-redux'
 import { getButtons } from './Redux/actions';
 import Button from './components/button/button';
 import NewButton from './components/newButton/newButton';
 import axios from 'axios';
+
 axios.defaults.baseURL='http://localhost:3001/api/v1'
 
 function App() {
@@ -21,22 +22,24 @@ function App() {
     },[flag])
 
   return (
-    <>
+    <div className={styles.appContainer}>
         <NewButton first={buttons.length}/>
-        {buttons.length?(buttons.map(button=>{
-            
-            return(
-                <Button
-                    key={button.id}
-                    id={button.id}
-                    name={button.name}
-                    counter={button.counter}
-                    flag={()=>setFlag(flag++)}
-                />
-            )
-        })):
-        <>Crea tu primer botón</>}
-    </>
+        <div className={styles.buttonContainer}>
+            {buttons.length?(buttons.map(button=>{
+                
+                return(
+                    <Button
+                        key={button.id}
+                        id={button.id}
+                        name={button.name}
+                        counter={button.counter}
+                        flag={()=>setFlag(flag++)}
+                    />
+                )
+            })):
+            <>Crea tu primer botón</>}
+        </div>
+    </div>
   )
 }
 
