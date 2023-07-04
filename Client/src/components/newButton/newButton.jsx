@@ -11,20 +11,25 @@ function NewButton({first}){
 
     const handleSubmit=async(event)=>{
         event.preventDefault()
-        await axios.post('/buttons',body)
-        dispatch(getButtons())
-        setBody({})
+        try {
+            await axios.post('/buttons',body)
+            dispatch(getButtons())
+            setBody({})
+        } catch (error) {
+           setError(error.response.data.error)
+           setBody({})
+        }
     }
 
     const handleChange=(event)=>{
         const value=event.target.value
-        const regex=/^\d+$/
+        const regex=/^[1-9]\d*$/
         if(regex.test(value)){
             setBody({name:event.target.value})
             setError('')
         }else{
             setBody({})
-            setError('El valor ingresado debe ser un número')
+            setError('El valor ingresado debe ser un número mayor que cero')
         }
     }
 
