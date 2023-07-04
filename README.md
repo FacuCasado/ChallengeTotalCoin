@@ -7,7 +7,7 @@ Para iniciar el servidor:
 __Requiere archivo .env adentro de la carpeta Api__
 
 ```
-cd /TotalCoin/Api
+cd /ChallengeTotalCoin/Api
 npm install
 npm start
 ```
@@ -17,7 +17,7 @@ npm start
 Para iniciar el cliente:
 
 ```
-cd /TotalCoin/Client
+cd /ChallengeTotalCoin/Client
 npm install
 npm run dev
 ```
