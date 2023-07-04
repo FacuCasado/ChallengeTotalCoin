@@ -11,15 +11,13 @@ axios.defaults.baseURL='http://localhost:3001/api/v1'
 function App() {
     const dispatch=useDispatch();
     const buttons=useSelector((state)=>state.allButtons)
-    let[flag, setFlag]=useState([]);
+
 
     useEffect(()=>{
             dispatch(getButtons())
     },[])
     
-    useEffect(()=>{
-        dispatch(getButtons())
-    },[flag])
+
 
   return (
     <div className={styles.appContainer}>
@@ -33,7 +31,6 @@ function App() {
                         id={button.id}
                         name={button.name}
                         counter={button.counter}
-                        flag={()=>setFlag(flag++)}
                     />
                 )
             })):

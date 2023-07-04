@@ -4,30 +4,35 @@ import axios from "axios";
 import { getButtons } from "../../Redux/actions";
 import styles from "./button.module.css";
 
-function Button({id, name, counter, flag}){
+function Button({id, name, counter}){
     const dispatch=useDispatch();
     const[disabled, setDisabled]=useState(false)
 
     const handleClick=async()=>{
-
         if(disabled) return;
         setDisabled(true)
-        axios.patch(`/buttons/${id}`)
-        .then(()=>dispatch(getButtons()))
-        .then(()=>flag())
-        .then(()=>setDisabled(false))
+        await axios.patch(`/buttons/${id}`)
+        //await axios.get('/buttons')
+        dispatch(getButtons())
+        setDisabled(false)
+    }
+
+    const handleDelete=async()=>{
+        await axios.delete(`/buttons/${id}`)
+        dispatch(getButtons())
     }
 
     return (
         <div className={styles.buttonContainer}>
-          <button
-            className={`${styles.button} ${disabled ? styles.disabled : ""}`}
-            onClick={handleClick}
-            disabled={disabled}
-          >
-            {disabled?'X':name}
-          </button>
-          <div className={styles.counter}>Counter: {counter}</div>
+            <button onClick={handleDelete}>x</button>
+            <button
+                className={`${styles.button} ${disabled ? styles.disabled : ""}`}
+                onClick={handleClick}
+                disabled={disabled}
+            >
+                {disabled?'X':name}
+            </button>
+            <div className={styles.counter}>Clicks: {counter}</div>
         </div>
       );
 
