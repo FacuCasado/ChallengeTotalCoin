@@ -2,7 +2,13 @@
 
 ## Base de datos
 
-Crear una base de datos en PostgreSQL y crear el archivo .env en la carpeta Api con los siguientes datos:
+Crear una base de datos en PostgreSQL 
+
+```
+CREATE DATABASE pruebatecnica;
+```
+
+Crear el archivo .env en la carpeta Api con los siguientes datos:
 
 ```
 DB_USER= Usuario de postgre
