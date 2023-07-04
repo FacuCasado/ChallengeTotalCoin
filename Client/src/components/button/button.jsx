@@ -8,6 +8,7 @@ function Button({id, name, counter}){
     const dispatch=useDispatch();
     const[disabled, setDisabled]=useState(false)
 
+    //Manejador de clicks al boton
     const handleClick=async()=>{
         if(disabled) return;
         setDisabled(true)
@@ -15,7 +16,7 @@ function Button({id, name, counter}){
         dispatch(getButtons())
         setDisabled(false)
     }
-
+    //Manejador del boton para eliminar
     const handleDelete=async()=>{
         await axios.delete(`/${id}`)
         dispatch(getButtons())

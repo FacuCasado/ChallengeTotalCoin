@@ -12,7 +12,7 @@ function App() {
     const dispatch=useDispatch();
     const buttons=useSelector((state)=>state.allButtons)
 
-
+    //Dispatch al montar el componente para traer todos los botones
     useEffect(()=>{
             dispatch(getButtons())
     },[])
@@ -22,10 +22,11 @@ function App() {
   return (
     <div className={styles.appContainer}>
         <h1 className={styles.h1}>Contador de clicks</h1>
+
         <NewButton first={buttons.length}/>
+
         <div className={styles.buttonContainer}>
             {buttons.length?(buttons.map(button=>{
-                
                 return(
                     <Button
                         key={button.id}

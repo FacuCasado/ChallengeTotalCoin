@@ -1,6 +1,7 @@
 import axios from 'axios'
 export const GET_BUTTONS='GET_BUTTONS'
 
+//Peticion que trae todos los botones
 export function getButtons(){
     return async function(dispatch){
         try {

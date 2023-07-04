@@ -10,6 +10,7 @@ function NewButton({first}){
     const [body, setBody]=useState({})
     const [error, setError]=useState('');
 
+    //Manejador de enviar el formulario
     const handleSubmit=async(event)=>{
         event.preventDefault()
         try {
@@ -22,9 +23,10 @@ function NewButton({first}){
         }
     }
 
+    //Manejador de cambios en el input
     const handleChange=(event)=>{
         const value=event.target.value
-        const regex=/^[1-9]\d*$/
+        const regex=/^[1-9]\d*$/ //Validacion de numero entero mayor que cero
         if(regex.test(value)){
             setBody({name:event.target.value})
             setError('')
