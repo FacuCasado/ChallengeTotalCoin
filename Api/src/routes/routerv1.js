@@ -1,5 +1,5 @@
 const {Router}=require('express');
-const { postButton, getAllButtons, patchCounter } = require('../handlers/buttonHandlers');
+const { postButton, getAllButtons, patchCounter } = require('../controllers/buttonControllers');
 
 const routerv1=Router();
 
