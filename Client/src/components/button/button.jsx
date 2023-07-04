@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { getButtons } from "../../Redux/actions";
 
-function Button({id, name, counter}){
+function Button({id, name, counter, flag}){
     const dispatch=useDispatch();
     const[disabled, setDisabled]=useState(false)
 
@@ -14,6 +14,7 @@ function Button({id, name, counter}){
         axios.patch(`/buttons/${id}`)
         .then(()=>dispatch(getButtons()))
         .then(()=>setDisabled(false))
+        .then(()=>flag())
     }
 
     return(

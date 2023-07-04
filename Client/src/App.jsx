@@ -10,28 +10,28 @@ axios.defaults.baseURL='http://localhost:3001/api/v1'
 function App() {
     const dispatch=useDispatch();
     const buttons=useSelector((state)=>state.allButtons)
-    const[prevButtons, setPrevButtons]=useState([]);
+    let[flag, setFlag]=useState([]);
 
     useEffect(()=>{
-
-        if(JSON.stringify(prevButtons)!==JSON.stringify(buttons) || !buttons.length){
             dispatch(getButtons())
-        }
-
-        setPrevButtons(buttons)
-        
-    },[dispatch, buttons, prevButtons])
+    },[])
+    
+    useEffect(()=>{
+        dispatch(getButtons())
+    },[flag])
 
   return (
     <>
         <NewButton first={buttons.length}/>
         {buttons.length?(buttons.map(button=>{
+            
             return(
                 <Button
                     key={button.id}
                     id={button.id}
                     name={button.name}
                     counter={button.counter}
+                    flag={()=>setFlag(flag++)}
                 />
             )
         })):
