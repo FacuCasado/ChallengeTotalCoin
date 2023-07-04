@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { getButtons } from "../../Redux/actions";
+import styles from './newButton.module.css'
 
 function NewButton({first}){
 
@@ -35,9 +36,9 @@ function NewButton({first}){
 
     return(
         <form>
-            <input type='text' placeholder='Número de botón' value={body.name?body.name:''} onChange={handleChange}></input>
-            <button type='submit' onClick={handleSubmit} disabled={error||!body.name}>{!first?'Primer botón':'Agregar botón'}</button>
-            {error&&<p>{error}</p>}
+            <input className={styles.input}type='text' placeholder='Número de botón' value={body.name?body.name:''} onChange={handleChange}></input>
+            <button className={styles.button}type='submit' onClick={handleSubmit} disabled={error||!body.name}>{!first?'Primer botón':'Agregar botón'}</button>
+            <p className={styles.errorMessage}>{error?error:' '}</p>
         </form>
     )
 

@@ -1,0 +1,16 @@
+.errorMessage{
+    color: red;
+    font-size: .8em;
+    display: flex;
+    justify-content: center;
+    min-height: .8em;
+    max-height: .8em
+  }
+
+.input{
+    height: 2em;
+}
+
+.button{
+    height: 3em;
+}
