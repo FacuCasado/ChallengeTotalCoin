@@ -13,7 +13,9 @@ const postButtonController=async(name)=>{
 }
 
 const getAllButtonsController=async()=>{
-    const response=await Button.findAll();
+    const response=await Button.findAll({
+        order:[['name','ASC']]
+    });
     return response
 }
 

@@ -11,6 +11,7 @@ const sequelize=new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:$
     native:false
 })
 
+
 ButtonModel(sequelize);
 
 const {Button}=sequelize.models
